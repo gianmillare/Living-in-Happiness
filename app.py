@@ -18,4 +18,6 @@ def load_data():
 whr = load_data()
 
 st.markdown("### Raw Data")
-st.write(whr)
+if st.checkbox("Show Raw Data", False):
+    st.subheader('Raw Data')
+    st.write(whr)
