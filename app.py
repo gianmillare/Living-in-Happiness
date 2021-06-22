@@ -31,6 +31,34 @@ for i, j in enumerate(happy_ten['Ladder score']):
 
 st.pyplot(fig)
 
+happy_25 = whr.sort_values('Ladder score', ascending=False)[:25]
+happy_25['Regional indicator'].unique().tolist()
+region_25 = {}
+
+for i in happy_25['Regional indicator']:
+    if i not in region_25:
+        region_25[i] = 1
+    else:
+        region_25[i] += 1
+region_25
+
+labels, counts = [], []
+for key in region_25:
+    labels.append(key)
+    counts.append(region_25[key])
+print(labels, counts)
+
+fig2, ax2 = plt.subplots(figsize=(12,5))
+
+plt.barh(labels, counts, color='royalblue', height=0.8)
+ax2.invert_yaxis()
+plt.xticks([])
+for i, j in enumerate(counts):
+    plt.text(j, i, " " + str(round(j, 2)), fontsize=15)
+
+st.pyplot(fig2)
+
+
 st.markdown("### Raw Data")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
