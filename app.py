@@ -68,7 +68,58 @@ ladderten = {
     "Max": ladderten_max,
     "Average": ladderten_average
 }
-print(ladderten) 
+
+# GDP per capita stats
+gdpten_min = happy_ten['Logged GDP per capita'].min()
+gdpten_max = happy_ten['Logged GDP per capita'].max()
+gdpten_average = happy_ten['Logged GDP per capita'].mean()
+gdpten = {
+    "Min": gdpten_min,
+    "Max": gdpten_max,
+    "Average": gdpten_average
+}
+
+# Social support stats
+socialten_min = happy_ten['Social support'].min()
+socialten_max = happy_ten['Social support'].max()
+socialten_average = happy_ten['Social support'].mean()
+socialten = {
+    "Min": socialten_min,
+    "Max": socialten_max,
+    "Average": socialten_average
+}
+
+
+# Healthy expectancy stats
+healthten_min = happy_ten['Healthy life expectancy'].min()
+healthten_max = happy_ten['Healthy life expectancy'].max()
+healthten_average = happy_ten['Healthy life expectancy'].mean()
+healthten = {
+    "Min": healthten_min,
+    "Max": healthten_max,
+    "Average": healthten_average
+}
+
+# Freedom of choice stats
+freeten_min = happy_ten['Freedom to make life choices'].min()
+freeten_max = happy_ten['Freedom to make life choices'].max()
+freeten_average = happy_ten['Freedom to make life choices'].mean()
+freeten = {
+    "Min": freeten_min,
+    "Max": freeten_max,
+    "Average": freeten_average
+}
+
+# Generosity stats
+generosityten_min = happy_ten['Generosity'].min()
+generosityten_max = happy_ten['Generosity'].max()
+generosityten_average = happy_ten['Generosity'].mean()
+generosityten = {
+    "Min": generosityten_min,
+    "Max": generosityten_max,
+    "Average": generosityten_average
+}
+
 
 st.markdown("### Raw Data")
 if st.checkbox("Show Raw Data", False):
