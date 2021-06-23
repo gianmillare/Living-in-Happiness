@@ -123,6 +123,28 @@ generosityten = {
     "Average": generosityten_average
 }
 
+
+# Ladder Score and GDP per capita
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("GDP vs Ladder Score")
+
+ladderrel = whr['Ladder score']
+gdprel = whr['Logged GDP per capita']
+
+figlad, ax = plt.subplots(figsize=(15,7))
+plt.scatter(gdprel, ladderrel)
+
+ax.set_title('Relationship between GDP per capita in Happiness')
+ax.set_xlabel('GDP per Capita')
+ax.set_ylabel('Ladder Score (Happiness)')
+
+# calc the trendline
+z = np.polyfit(gdprel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(gdprel,p(gdprel),"r--")
+
+st.pyplot(figlad)
+
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
