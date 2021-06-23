@@ -131,7 +131,7 @@ st.markdown("GDP vs Ladder Score")
 ladderrel = whr['Ladder score']
 gdprel = whr['Logged GDP per capita']
 
-figlad, ax = plt.subplots(figsize=(15,7))
+figgdp, ax = plt.subplots(figsize=(15,7))
 plt.scatter(gdprel, ladderrel)
 
 ax.set_title('Relationship between GDP per capita in Happiness')
@@ -143,7 +143,29 @@ z = np.polyfit(gdprel, ladderrel, 1)
 p = np.poly1d(z)
 plt.plot(gdprel,p(gdprel),"r--")
 
-st.pyplot(figlad)
+st.pyplot(figgdp)
+
+# Ladder Score and Social Support
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Social Support vs Ladder Score")
+
+ladderrel = whr["Ladder score"]
+socialrel = whr["Social support"]
+
+figsoc, ax = plt.subplots(figsize=(15,7))
+plt.scatter(socialrel, ladderrel)
+
+ax.set_title("Relationship between Social Support score and Happiness")
+ax.set_xlabel("Social Support score")
+ax.set_ylabel("Ladder Score (Happiness)")
+
+# trendline
+z = np.polyfit(socialrel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(socialrel, p(socialrel), 'r--')
+
+plt.show()
+st.pyplot(figsoc)
 
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
