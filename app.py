@@ -167,6 +167,28 @@ plt.plot(socialrel, p(socialrel), 'r--')
 plt.show()
 st.pyplot(figsoc)
 
+# Ladder score and Healthy life expectancy
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Health Expectancy vs Ladder Score")
+
+ladderrel = whr['Ladder score']
+healthrel = whr['Healthy life expectancy']
+
+# plot
+fighealth, ax = plt.subplots(figsize=(15,7))
+plt.scatter(healthrel, ladderrel)
+
+ax.set_title("Relationship between Healthy life expectancy and Happiness")
+ax.set_xlabel("Healthy life expectancy score")
+ax.set_ylabel("Ladder Score (Happiness)")
+
+# trendline
+z = np.polyfit(healthrel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(healthrel, p(healthrel), "r--")
+
+st.pyplot(fighealth)
+
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
