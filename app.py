@@ -19,6 +19,8 @@ def load_data():
 whr = load_data()
 
 # Top 10 Happiest Countries
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("What are the Top 10 Happiest Countries?")
 happy_ten = whr[:10]
 
 fig, ax = plt.subplots(figsize=(12,8))
@@ -33,6 +35,8 @@ for i, j in enumerate(happy_ten['Ladder score']):
 st.pyplot(fig)
 
 # Regions of the top 25 happiest countries
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Which Regions contain the Happiest Countries?")
 happy_25 = whr.sort_values('Ladder score', ascending=False)[:25]
 happy_25['Regional indicator'].unique().tolist()
 region_25 = {}
@@ -42,7 +46,6 @@ for i in happy_25['Regional indicator']:
         region_25[i] = 1
     else:
         region_25[i] += 1
-region_25
 
 labels, counts = [], []
 for key in region_25:
@@ -120,8 +123,7 @@ generosityten = {
     "Average": generosityten_average
 }
 
-
-st.markdown("### Raw Data")
+st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
     st.write(whr)
