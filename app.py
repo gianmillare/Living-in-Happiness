@@ -233,6 +233,28 @@ plt.plot(genrel, p(genrel), "r--")
 
 st.pyplot(figgen)
 
+# Ladder Score and corruption
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Perception of Corruption vs Ladder Score")
+
+ladderrel = whr['Ladder score']
+corrrel = whr['Perceptions of corruption']
+
+# plot
+figcorr, ax = plt.subplots(figsize=(15,7))
+plt.scatter(corrrel, ladderrel)
+
+ax.set_title("Relationship between Perceptions of corruption and Happiness")
+ax.set_xlabel("Perceptions of corruption")
+ax.set_ylabel("Ladder Score (Happiness)")
+
+# trendline
+z = np.polyfit(corrrel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(corrrel, p(corrrel), "r--")
+
+st.pyplot(figcorr)
+
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
