@@ -4,7 +4,14 @@ A data science web application that analyses data from the infamous World Happin
 
 At a high level overview, I visualize the constiuents of "happiness" across 153 countries. I look at things like top 10 happiness countries, the happiest regions, and the relationship between happiness and GDP per capita, social support, healthy life expectancy, and more. 
 
-Credit: [World Happiness Report](https://worldhappiness.report/)
+Credit: [World Happiness Report](https://worldhappiness.report/)  
 Data Credit: [Kaggle - WHR](https://www.kaggle.com/unsdsn/world-happiness)
 
 <hr>
+
+![](images/1.png)
+![](images/2.png)
+![](images/3.png)
+![](images/4.png)
+![](images/5.png)
+![](images/6.png)
