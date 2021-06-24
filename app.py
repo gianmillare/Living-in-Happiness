@@ -189,6 +189,28 @@ plt.plot(healthrel, p(healthrel), "r--")
 
 st.pyplot(fighealth)
 
+# Ladder Score and Freedom to make life choices
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Freedom of Choice vs Ladder Score")
+
+ladderrel = whr['Ladder score']
+freerel = whr['Freedom to make life choices']
+
+# plot
+figfree, ax = plt.subplots(figsize=(15, 7))
+plt.scatter(freerel, ladderrel)
+
+ax.set_title("Relationship between Freedom of choice and Happiness")
+ax.set_xlabel("Freedom of choice score")
+ax.set_ylabel("Ladder Score (Happiness)")
+
+# trendline
+z = np.polyfit(freerel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(freerel, p(freerel), 'r--')
+
+st.pyplot(figfree)
+
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
