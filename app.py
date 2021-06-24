@@ -211,6 +211,28 @@ plt.plot(freerel, p(freerel), 'r--')
 
 st.pyplot(figfree)
 
+# Ladder score and generosity
+st.text("--------------------------------------------------------------------------------------------------")
+st.markdown("Generosity vs Ladder Score")
+
+ladderrel = whr['Ladder score']
+genrel = whr['Generosity']
+
+# plot
+figgen, ax = plt.subplots(figsize=(15, 7))
+plt.scatter(genrel, ladderrel)
+
+ax.set_title("Relationship between Generosity score and Happiness")
+ax.set_xlabel("Generosity score")
+ax.set_ylabel("Ladder Score (Happiness)")
+
+# trendline
+z = np.polyfit(genrel, ladderrel, 1)
+p = np.poly1d(z)
+plt.plot(genrel, p(genrel), "r--")
+
+st.pyplot(figgen)
+
 st.text("--------------------------------------------------------------------------------------------------")
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
